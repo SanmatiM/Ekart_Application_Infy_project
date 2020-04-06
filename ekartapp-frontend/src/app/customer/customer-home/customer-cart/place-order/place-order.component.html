@@ -1,0 +1,23 @@
+<div *ngIf="!viewSuccess">
+    <div *ngIf="viewAddress">
+        <customer-address></customer-address>
+    
+        <button type="button" class="btn btn-primary" (click)="viewAddress = false" >Proceed</button>
+    </div>
+    
+    <div *ngIf="!viewAddress">
+    <h3>Payment</h3><br>
+    <input type="radio" id="COD" name="Payment" value="COD"> COD(Cash On Delivery) <br> You can pay through Card/Cash/Online at delivery time according to the availability.
+    <br>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="viewSuccess=true" >Place Order</button>
+    
+    </div>
+    </div>
+    <div *ngIf="viewSuccess">
+        <h3>Order has been placed sucessfully!!! Your order will be delivered in 5-7 business days.Thank you for shopping with Ekart.</h3>
+        <div class="col-md-7 offset-md-3" style="color: mediumblue;">
+           <h1 >Happy Shopping....!!!!</h1>
+        </div>
+       
+    </div>

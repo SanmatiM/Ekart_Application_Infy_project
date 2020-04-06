@@ -1,0 +1,58 @@
+<div class="page-top-offset"></div>
+<div class="container mt-3">
+    <div class="offset-md-1 col-md-10">
+        <div class="form-bg-light">
+            <h3 class="title">Customer Profile</h3>
+            <br>
+            <table class="table table-condensed text-black">
+                <tr>
+                    <th>Name:</th>
+                    <td>
+                        <div >
+                            {{customer.name}}
+
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>Email Id:</th>
+                    <td>
+                        {{customer.emailId}}
+                    </td>
+
+                </tr>
+                <tr>
+                    <th>Phone Number:</th>
+                    <td>
+                        <div>
+                            {{customer.phoneNumber}}
+                            
+
+                        </div>
+                        
+                </tr>
+                <tr>
+                    <th>Addresses:</th>
+                        <td>
+                            <div *ngFor="let address of customer.addresses ">
+
+                            <div *ngFor="let key of address|address">
+                                {{key}}
+                            </div>
+                            <div>------------------------------------</div>
+                            </div>
+                    </td>
+                </tr>
+                
+
+                
+            </table>
+            
+            <div *ngIf="errorMessage!='' && successMessage!=''">
+                <h5 class="error-message text-center">{{errorMessage}}</h5>
+                <h5 class="success-message text-center">{{successMessage}}</h5>
+            </div>
+        </div>
+    </div>
+</div>

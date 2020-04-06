@@ -1,0 +1,329 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* @import '../node_modules/bootstrap/dist/css/bootstrap.css'; */
+
+body {
+    /* background-color: #0f5740; */
+    /* background-color: #f2f9ff; */
+    background-color: #f8f8f8;
+    /* background-color: #e6f9ff; */
+}
+
+
+/* //DFE2DB 
+f5f7fa
+FDF3E7
+C1E1A6
+Check
+00a591
+*/
+.align-right {
+    float: right;
+}
+
+.force-to-bottom {
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+}
+
+.div-border {
+    border: 1px solid #000000;
+}
+
+.div-left-border {
+    border-left: 1px solid #000000;
+}
+
+.table-borderless>tbody>tr>td,
+.table-borderless>tbody>tr>th,
+.table-borderless>tfoot>tr>td,
+.table-borderless>tfoot>tr>th,
+.table-borderless>thead>tr>td,
+.table-borderless>thead>tr>th {
+    border: none;
+}
+
+.hoverable {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+.hoverable:hover {
+    -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+.panel-box {
+    height: 350px;
+}
+
+.image-box {
+    height: 200px;
+    overflow: hidden;
+}
+
+.cards {
+    vertical-align: top;
+    margin-right: 1em;
+}
+
+.btn-circular {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin-left: 15px;
+    border-radius: 50%
+}
+
+.form-bg-light {
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    margin: 20px 0 70px;
+    /* min-height: 350px; */
+    padding: 30px;
+}
+
+.text-black {
+    color: black;
+}
+
+.field-error-message {
+    color: red !important;
+    font-size: small;
+}
+
+.error-message {
+    color: red;
+}
+
+.success-message {
+    color: green
+}
+
+.page-top-offset {
+    margin-top: 2%;
+}
+
+
+/* .container-fluid{
+    padding: -15px;
+} */
+
+.table-border {
+    border-radius: 25px;
+    /* background: #cadad6;
+         */
+    background: #f2f2f2;
+    /* background: #f2f2f2e8; */
+    padding: 20px;
+}
+
+.top-margin-5 {
+    margin-top: 5%;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+
+/* body{
+    padding-top: 70px;
+} */
+
+.sidebar-nav-fixed {
+    width: 15%;
+}
+
+.list-group-item {
+    background: #f0d3a2 !important;
+}
+
+.custom-button {
+    border: none;
+    background: none;
+}
+
+.glyphicon-success {
+    color: #2c6d2c;
+}
+
+.glyphicon-cancel {
+    color: red;
+}
+
+.table-border-home {
+    border-radius: 20px;
+    background: white;
+    padding: 15px;
+}
+
+.form-control-bottom-border {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    border-bottom: 1px ridge green;
+    box-shadow: none;
+}
+
+
+/* .form-bg-light {
+  background-color: #FF8F5E;
+  border-radius: 8px;
+  color: #fff;
+  max-width: 350px;
+  margin: 20px 0 70px;
+  min-height: 350px;
+  padding: 30px;
+} */
+
+.title {
+    color: #B33C12;
+    text-align: center;
+}
+
+
+/* navbar settings */
+
+.navbar-dark .navbar-brand {
+    color: #ffffff;
+}
+
+.navbar-dark .navbar-brand:hover,
+.navbar-dark .navbar-brand:focus {
+    color: black;
+}
+
+.navbar-dark .nav-item:hover {
+    color: black;
+    background: #ffa64d;
+}
+
+
+/*  
+.navbar-dark .navbar-text {
+  color: #ffffff;
+}
+.navbar-dark .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-dark .navbar-nav > li > a:hover,
+.navbar-dark .navbar-nav > li > a:focus {
+
+  color: black;
+  background-color:#453f3f;
+ 
+}*/
+
+.navbar-dark .navbar-nav>li>.dropdown-menu {
+    background-color: #403b3b;
+}
+
+.navbar-dark .navbar-nav>li>.dropdown-menu>li>a {
+    color: #f8f8f8;
+}
+
+.navbar-dark .navbar-nav>li>.dropdown-menu>li>a:hover,
+.navbar-dark .navbar-nav>li>.dropdown-menu>li>a:focus {
+    color: #000000;
+}
+
+
+/* .navbar-dark .navbar-nav > li > .dropdown-menu > li.divider {
+ 
+} */
+
+.navbar-dark .navbar-nav .open .dropdown-menu>.active>a,
+.navbar-dark .navbar-nav .open .dropdown-menu>.active>a:hover,
+.navbar-dark .navbar-nav .open .dropdown-menu>.active>a:focus {
+    color: #453f3f;
+}
+
+.navbar-dark .navbar-nav>.active>a,
+.navbar-dark .navbar-nav>.active>a:hover,
+.navbar-dark .navbar-nav>.active>a:focus {
+    color: #f0d3a2
+}
+
+
+/*
+.navbar-dark .navbar-nav > .open > a,
+.navbar-dark .navbar-nav > .open > a:hover,
+.navbar-dark .navbar-nav > .open > a:focus {
+  color: #453f3f;
+  background-color:#453f3f;
+}
+.navbar-dark .navbar-toggle {
+  border-color: #6aeeb9;
+}*/
+
+.navbar-dark .navbar-toggle:hover,
+.navbar-dark .navbar-toggle:focus {
+    background-color: #6aeeb9;
+}
+
+.navbar-dark .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+}
+
+.navbar-dark .navbar-collapse,
+.navbar-dark .navbar-form {
+    border-color: #ffffff;
+}
+
+.navbar-dark .navbar-link {
+    color: #ffffff;
+}
+
+.navbar-dark .navbar-link:hover {
+    color: #453f3f;
+}
+
+@media (max-width: 767px) {
+    .navbar-dark .navbar-nav .open .dropdown-menu>li>a {
+        color: #ffffff;
+    }
+    .navbar-dark .navbar-nav .open .dropdown-menu>li>a:hover,
+    .navbar-dark .navbar-nav .open .dropdown-menu>li>a:focus {
+        color: #453f3f;
+    }
+    .navbar-dark .navbar-nav .open .dropdown-menu>.active>a,
+    .navbar-dark .navbar-nav .open .dropdown-menu>.active>a:hover,
+    .navbar-dark .navbar-nav .open .dropdown-menu>.active>a:focus {
+        color: #453f3f;
+        background-color: #6aeeb9;
+    }
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    filter: contrast(0) brightness(100);
+}
+
+.navbar-brand {
+    border: 2px solid white;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: white !important;
+}
+
+.dropdown {
+    cursor: pointer !important;
+}

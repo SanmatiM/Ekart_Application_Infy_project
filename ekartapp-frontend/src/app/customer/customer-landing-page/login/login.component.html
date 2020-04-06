@@ -1,0 +1,56 @@
+
+<div class="row body">
+    <div class="col-md-4 offset-md-4">
+        <div class="login">
+
+            <h3 class="title">Login</h3>
+            <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+
+                <div class="form-group">
+                    <label for="emailId">Email Id</label>
+                    <input type="email" class="form-control" formControlName="emailId" placeholder="Email Id" id="emailId" />
+                    <div *ngIf="loginForm.controls.emailId.invalid
+                                                                            && loginForm.controls.emailId.touched">
+
+                        <div class="field-error-message" *ngIf="loginForm.controls.emailId.hasError('required')">
+                            Email Id is Mandatory
+                        </div>
+                        <div class="field-error-message"
+                            *ngIf="loginForm.controls.emailId.dirty && loginForm.controls.emailId.hasError('emailIdPatternError')">
+                            Email Id pattern is invalid
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" class="form-control" formControlName="password" placeholder="Password"
+                        id="password"  style="width: 360px; height: 35px;"/>
+                    <div *ngIf="loginForm.controls.password.invalid
+                                                        && loginForm.controls.password.touched">
+
+                        <div class="field-error-message" *ngIf="loginForm.controls.password.hasError('required')">
+                            Password is Mandatory
+                        </div>
+                        <div class="field-error-message"
+                            *ngIf="loginForm.controls.password.dirty && loginForm.controls.password.hasError('passwordPatternError')">
+                            Password pattern is invalid
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <button class="col-md-4 offset-md-4 btn btn-success" [disabled]="!loginForm.valid">
+                        Login
+                    </button>
+
+                </div>
+            </form>
+            <h5 *ngIf="tryToLogin" class="text-center text-info"> Logging...Please Wait!!</h5>
+            <h5 class="error-message text-justify">{{errorMessage}}</h5>
+            <br />
+            <div class="text-info">Are you a new user? <a routerLink="../register">Sign up</a></div>
+        </div>
+    </div>
+</div>

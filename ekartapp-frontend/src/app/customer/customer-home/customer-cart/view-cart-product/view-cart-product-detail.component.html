@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-auto">
+        <div class="image-box">
+            <img [src]="'assets/resources/'+ selectedCartProduct.product.productId+'.jpg'"
+                class="img-responsive center-block" alt="Image Not Found" onError="this.src='assets/resources/404.png'">
+        </div>
+
+    </div>
+    <div class="col-auto div-left-border">
+        <div class="text-left text-black">
+            <h4>
+                <ins>{{selectedCartProduct.product.brand+" "+selectedCartProduct.product.name}}</ins>
+            </h4>
+
+        </div>
+        <table class="table table-borderless text-black">
+            <tr>
+                <th>
+                    <span class="text-muted">Features</span>
+                </th>
+                <td>
+                    <dl class="text-justify">
+                        <div *ngFor="let item of selectedCartProduct.product.description|productDescription">
+                            <dd>{{item}}</dd>
+                        </div>
+                    </dl>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <span class="text-muted">Price (Per Unit)</span>
+                </th>
+                <td>
+                    <span class="success-message">
+
+                        <strong>Rs.{{selectedCartProduct.product.price * (1-selectedCartProduct.product.discount/100)|number:'1.2-2'}}</strong>
+
+                        <div class="clearfix"></div>
+                        <span class="field-error-message">
+                            <del>Rs.{{selectedCartProduct.product.price |number:'1.2-2'}}</del>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <span class="text-muted">Discount</span>
+                </th>
+                <td>
+                    <strong>
+                        <span class="success-message">{{selectedCartProduct.product.discount/100 | percent}}</span>
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <span class="text-muted">Quantity</span>
+                </th>
+                <td>
+                    <strong>
+                        <button [disabled]="selectedCartProduct.quantity<=0" (click)="alter('-')">-</button>
+                        <input [(ngModel)]="selectedCartProduct.quantity" />
+                        <button (click)="alter('+')">+</button>
+                    </strong>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <span class="text-muted">Total Amount Payable</span>
+                </th>
+                <td>
+                    <strong>
+                        <span
+                            class="success-message">Rs.{{selectedCartProduct.product.price *selectedCartProduct.quantity* (1-selectedCartProduct.product.discount/100)|number:'1.2-2'}}</span>
+                    </strong>
+                </td>
+            </tr>
+        </table>
+        <div class="col-md-2 col-md-offset-3 btn btn-primary" (click)="updateCart()">Update</div>
+    </div>
+</div>
+<h5 class="success-message">{{successMessage}}</h5>
+<h5 class="error-message">{{errorMessage}}</h5>

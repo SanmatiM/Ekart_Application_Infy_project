@@ -1,0 +1,89 @@
+<div class="row">
+    <div class="col-12">
+        <br>
+        
+            <h5 *ngIf="successMessage!=null && successMessage!=''" class="success-message">
+                {{successMessage}}
+            </h5>
+            <h5 *ngIf="errorMessage!=null && errorMessage!=''" class="error-message">
+                {{errorMessage}}
+            </h5>
+          <br>
+    </div>
+    <div class="card-deck">
+        <div class="card bg-light">
+            <img class="card-img-top" [src]="'assets/resources/'+ selectedProduct.productId+'.jpg'"
+                alt="Image Not Found" onError="this.src='assets/resources/404.png'">
+            <div class="card-body">
+                <div class="row">
+                    <div class="offset-md-3">
+                        <button class="btn btn-warning " (click)="addToCart()">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card ">
+        <div class="text-left text-black">
+            <h4>
+                <ins>{{selectedProduct.brand+" "+selectedProduct.name}}</ins>
+            </h4>
+        </div>
+        <table class="table table-borderless text-black">
+            <tr>
+                <th>
+                    <span class="text-muted">Category</span>
+                </th>
+                <td>
+                    {{selectedProduct.category}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <span class="text-muted">Features</span>
+                </th>
+                <td>
+                    <dl class="text-justify">
+                        <div *ngFor="let item of selectedProduct.description|productDescription">
+                            <dd>{{item}}</dd>
+                        </div>
+                    </dl>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <span class="text-muted">Price</span>
+                </th>
+                <td>
+                    <span class="success-message">
+
+                        <strong>Rs.{{selectedProduct.price * (1-selectedProduct.discount/100)|number:'1.2-2'}}</strong>
+
+                        <div class="clearfix"></div>
+                        <span class="field-error-message">
+                            <del>Rs.{{selectedProduct.price |number:'1.2-2'}}</del>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <span class="text-muted">Discount</span>
+                </th>
+                <td>
+                    <strong>
+                        <span class="success-message">{{selectedProduct.discount/100 | percent}}</span>
+                    </strong>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+
+</div>
+
+<br>
+<br>
+<br>

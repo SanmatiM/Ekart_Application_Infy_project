@@ -1,0 +1,170 @@
+<div class="page-top-offset"></div>
+
+<div *ngIf="addressToUpdate==null && addressToAdd==null">
+    <div class="row">
+        <button class="btn btn-info" (click)="addNewAddress()">Add New Address</button>
+    </div>
+    <br>
+
+    <h5 *ngIf="successMessage!=null && successMessage!=''" class="success-message">
+        {{successMessage}}
+    </h5>
+    <h5 *ngIf="errorMessage!=null && errorMessage!=''" class="error-message">
+        {{errorMessage}}
+    </h5>
+
+    <br>
+    <div *ngFor="let address of addresses ">
+        <input type="radio" name="address" value="address">
+        <div class="card text-dark border-primary hoverable w-75">
+            <div class="row">
+                <div class="col card-block offset-1">
+                    
+                    <br>
+                    <div *ngFor="let key of address|address">
+                        {{key}}
+                    </div>
+
+                </div>
+                <div class="col card-block offset-2">
+                    <br>
+                    <button class="btn btn-info btn-sm" (click)="updateAddress(address)">Update</button>
+                    <br />
+                    <br>
+                    <button class="btn btn-danger btn-sm" (click)="deleteAddress(address)">Delete&nbsp;</button>
+                </div>
+            </div>
+            <br>
+        </div>
+        <br>
+    </div>
+</div>
+<div class="row" *ngIf="addressToUpdate!=null">
+    <div class="col-md-10 form-bg-light">
+        <form class="form" #modifyForm="ngForm">
+            <div class="form-group">
+                <label for="addressLine1">Address Lane 1</label>
+                <input type="text" name="addressLine1" class="form-control" id="addressLine1"
+                    [(ngModel)]="addressToUpdate.addressLine1" required #addressLine1="ngModel">
+                <div class="field-error-message" *ngIf="addressLine1.invalid && addressLine1.dirty">
+                    Address Lane is mandatory
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="addressLine2">Address Lane 2</label>
+                <input type="text" name="addressLine2" class="form-control" id="addressLine2"
+                    [(ngModel)]="addressToUpdate.addressLine2" required #addressLine2="ngModel">
+                <div class="field-error-message" *ngIf="addressLine2.invalid && addressLine2.dirty">
+                    Address Lane is mandatory
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" name="city" class="form-control" id="city" [(ngModel)]="addressToUpdate.city"
+                    required #city="ngModel">
+                <div class="field-error-message" *ngIf="city.invalid && city.dirty">
+                    City is mandatory
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" name="state" class="form-control" id="state" [(ngModel)]="addressToUpdate.state"
+                    required #state="ngModel">
+                <div class="field-error-message" *ngIf="state.invalid && state.dirty">
+                    State is mandatory
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pin">Pin code</label>
+                <input type="text" name="pin" pattern="[0-9]{6}" class="form-control" id="pin"
+                    [(ngModel)]="addressToUpdate.pin" required #pin="ngModel">
+                <div class="field-error-message" *ngIf="pin.invalid && pin.dirty">
+                    Pin is mandatory and should be 6 digits
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contactNumber">Phone Number</label>
+                <input type="text" name="contactNumber" pattern="[0-9]{10}" class="form-control" id="contactNumber"
+                    [(ngModel)]="addressToUpdate.contactNumber" required #contactNumber="ngModel">
+                <div class="field-error-message" *ngIf="pin.contactNumber && pin.contactNumber">
+                    Contact number is mandatory and should be 10 digits
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-success" [disabled]="modifyForm.invalid"
+                    (click)="updateSelectedAddress()">Update</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-info" (click)="cancelUpdate()">Cancel</button>
+            </div>
+
+        </form>
+        <h5 class="error-message">{{errorMessage}}</h5>
+        <h5 class="success-message">{{successMessage}}</h5>
+
+    </div>
+</div>
+
+<div class="row" *ngIf="addressToAdd!=null">
+    <div class="col-md-10 form-bg-light">
+        <form class="form" #addForm="ngForm">
+            <div class="form-group">
+                <label for="addressLine1">Address Lane 1</label>
+                <input type="text" name="addressLine1" class="form-control" id="addressLine1"
+                    [(ngModel)]="addressToAdd.addressLine1" required #addressLine1="ngModel">
+                <div class="field-error-message" *ngIf="addressLine1.invalid && addressLine1.dirty">
+                    Address Lane is mandatory
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="addressLine2">Address Lane 2</label>
+                <input type="text" name="addressLine2" class="form-control" id="addressLine2"
+                    [(ngModel)]="addressToAdd.addressLine2" required #addressLine2="ngModel">
+                <div class="field-error-message" *ngIf="addressLine2.invalid && addressLine2.dirty">
+                    Address Lane is mandatory
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" name="city" class="form-control" id="city" [(ngModel)]="addressToAdd.city" required
+                    #city="ngModel">
+                <div class="field-error-message" *ngIf="city.invalid && city.dirty">
+                    City is mandatory
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" name="state" class="form-control" id="state" [(ngModel)]="addressToAdd.state"
+                    required #state="ngModel">
+                <div class="field-error-message" *ngIf="state.invalid && state.dirty">
+                    State is mandatory
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pin">Pin code</label>
+                <input type="text" name="pin" pattern="[0-9]{6}" class="form-control" id="pin"
+                    [(ngModel)]="addressToAdd.pin" required #pin="ngModel">
+                <div class="field-error-message" *ngIf="pin.invalid && pin.dirty">
+                    Pin is mandatory and should be 6 digits
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contactNumber">Phone Number</label>
+                <input type="text" name="contactNumber" pattern="[0-9]{10}" class="form-control" id="contactNumber"
+                    [(ngModel)]="addressToAdd.contactNumber" required #contactNumber="ngModel">
+                <div class="field-error-message" *ngIf="pin.contactNumber && pin.contactNumber">
+                    Contact number is mandatory and should be 10 digits
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-success" [disabled]="addForm.invalid"
+                    (click)="addAddress()">Add</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-info" (click)="cancelAdd()">Cancel</button>
+            </div>
+
+        </form>
+        <h5 class="error-message">{{errorMessage}}</h5>
+        <h5 class="success-message">{{successMessage}}</h5>
+
+    </div>
+</div>

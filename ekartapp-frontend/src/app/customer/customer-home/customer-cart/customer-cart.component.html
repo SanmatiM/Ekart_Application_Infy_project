@@ -1,0 +1,85 @@
+<h3 class="title">Customer Cart</h3>
+<br>
+<h5 *ngIf="successMessage!=null && successMessage!=''" class="success-message">
+  {{successMessage}}
+</h5>
+<h5 *ngIf="errorMessage!=null && errorMessage!=''" class="error-message">
+  {{errorMessage}}
+</h5>
+
+<div *ngIf="!viewBilling">
+<div *ngIf="!viewCartProductDetails">
+  <div *ngFor="let cart of cartList">
+    <div class="card">
+      <div class="row">
+        <div class="col-auto">
+          <img [src]="'assets/resources/'+ cart.product.productId+'.jpg'" class="img-responsive center-block"
+            alt="Not Found" onError="this.src='assets/resources/404.png'">
+        </div>
+        <div class="col card-block offset-1">
+          <br />
+          <h3>{{cart.product.name}}</h3>
+          <strong>BRAND:</strong> {{cart.product.brand}}
+          <br />
+          <strong>PRICE:</strong> {{cart.product.price}}
+          <br />
+          <strong>DISCOUNT:</strong> {{cart.product.discount}}
+          <br />
+          <strong>Quantity:</strong> {{cart.quantity}}
+          <br />
+        </div>
+        <div class="col card-block">
+          <br />
+          <br />
+          <button class="btn btn-primary" (click)="setSelectedCart(cart)">Details</button>
+          <br />
+          <br />
+          <button class="btn btn-primary" (click)="deleteProductFromCart(cart)">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!cartList || cartList.length==0" class="error-message">
+    No products are added to the cart
+  </div>
+</div>
+
+<div *ngIf="viewCartProductDetails">
+  <div class="row">
+    <div class="col-md-2">
+      <button (click)="viewCartProductDetails=false" class="btn btn-secondary">
+        Back
+      </button>
+    </div>
+  </div>
+  <br>
+  <view-cart-product-detail [selectedCartProduct]="selectedCartProduct"></view-cart-product-detail>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+
+
+<br>
+<div *ngIf="(cartList || cartList.length!=0)&&!viewCartProductDetails" class="error-message">
+<button type="button" class="btn" (click)="viewBilling=true" style="background-color: yellowgreen;">Place Order</button>
+</div>
+<br>
+<br>
+<br>
+</div>
+
+
+<div *ngIf="viewBilling">
+  <div class="row">
+    <div>
+      <button (click)="viewBilling=false" class="btn btn-secondary">
+        Back
+      </button>
+      <br>
+      <br>
+      <app-place-order></app-place-order>
+    </div>
+  </div>
+  <br>

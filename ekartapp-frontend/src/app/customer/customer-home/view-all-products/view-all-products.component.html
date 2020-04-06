@@ -1,0 +1,57 @@
+<div class="row" style="padding: 15px">
+</div>
+<br>
+<br>
+<div *ngIf="productListToDisplay.length!=null && productListToDisplay.length>0">
+  <div *ngIf="!viewDetails">
+
+    <div class="row">
+      <div class="card-group">
+        <div *ngFor="let product of productListToDisplay">
+          <a [routerLink]="" class="nav-link" (click)="setSelectedProduct(product)">
+
+            <div class="card hoverable">
+              <div class="card-header text-white bg-info">
+                <div class="text-truncate">{{product.brand+" - "+product.name}}</div>
+              </div>
+              <div class="card-body">
+                <div class="image-box">
+                  <img [src]="'assets/resources/'+ product.productId+'.jpg'" class="img-responsive center-block"
+                    alt="Image Not Found" onError="this.src='assets/resources/404.png'">
+                </div>
+              </div>
+              <div class="card-footer">
+                <!-- Rs. is used instead of currency pipe due to support issue -->
+                <span class="success-message">
+                  <p>
+                    <strong>Rs.{{product.price * (1-product.discount/100)|number:'1.2-2'}}</strong>
+                    <span class="field-error-message">
+                      <del>Rs.{{product.price |number:'1.2-2'}}</del>
+                    </span>
+                  </p>
+                  <strong>{{product.discount/100 | percent}} OFF</strong>
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<div *ngIf="productListToDisplay.length==0">
+  <div class="field-error-message">No products available!!</div>
+</div>
+<div *ngIf="viewDetails">
+  <div class="row">
+    <div class="col-md-2">
+      <a [routerLink]="" (click)="viewDetails=false" class="btn btn-dark">
+        Back
+      </a>
+    </div>
+  </div>
+  <br>
+  <customer-product-details [selectedProduct]="selectedProduct"></customer-product-details>
+</div>

@@ -1,0 +1,61 @@
+.vertical-menu {
+  width: 200px;
+  height: 100%;
+  background-color:rgba(88, 88, 88); 
+}
+
+.vertical-menu a {
+background: rgb(139, 215, 245);
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: rgb(91, 187, 204);
+}
+
+.vertical-menu a.active {
+  background-color: rgb(13, 14, 77);
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+/* navbar settings */
+.navbar-inverse{
+  background-color: #282828;
+  border: #282828;
+}
+.nav > li > a{
+  color: #bfbfbf;
+}
+  .nav > li > a:hover {
+  background-color: transparent;
+  color: #6aeeb9;
+}
+
+.nav > li > a:focus{
+  background-color: transparent;
+  color:orange;
+}
+.navbar .navbar-brand {
+  font-weight: 400;
+  font-size: 22px;
+  background-color: transparent;
+ 
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+    
+    color: orange !important;
+  }
+
